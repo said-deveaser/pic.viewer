@@ -1,0 +1,8 @@
+@function toEm($x, $y: 16) {
+    @return ($x / $y) + em;
+}
+$text-color: #374867;
+$border-color: #d8d3cb;
+$link-color: #3663a7;
+$like-dis: #c7b8b3;
+$like-en: #ff7676;

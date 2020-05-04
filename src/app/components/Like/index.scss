@@ -1,0 +1,19 @@
+@import '../../../../public/scss/variables.scss';
+
+
+.likes {
+    padding: .8em 1em;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-left: 1px solid $border-color;
+	&__icon {
+        font-size: 1.4em;
+        color: $like-en;
+	}
+	&__count {
+        font-weight: bold;
+	}
+}

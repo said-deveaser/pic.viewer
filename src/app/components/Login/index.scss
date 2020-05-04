@@ -1,0 +1,13 @@
+.login {
+	&__text {
+        font-weight: 300;
+	}
+    &__sing-in {
+        font-weight: bold;
+    }
+    &:hover{
+        .login__text {
+            text-decoration: underline;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+.back {
+    display: -webkit-inline-flex;
+    display: -ms-inline-flex;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    padding-right: .3em;
+    &:hover {
+        .back__text {
+            color: #527cca;
+        }
+    }
+	&__icon {
+        font-size: 2em;
+	}
+    &__text {
+        font-weight: bold;
+    }
+}

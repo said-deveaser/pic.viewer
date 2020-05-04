@@ -1,0 +1,22 @@
+@import '../../../../public/scss/variables.scss';
+
+.author {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    align-items: center;
+	&__icon {
+        color: #d09987;
+        font-size: 1.2em;
+	}
+	&__name {
+        font-weight: bold;
+	}
+	&__link {
+        color: $link-color;
+        margin-left: 0.3em;
+        &:hover {
+            text-decoration: underline;
+        }
+	}
+}

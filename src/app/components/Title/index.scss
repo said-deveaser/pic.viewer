@@ -1,0 +1,26 @@
+.title {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+	&__logo-wrapper {
+        flex-shrink: 0px;
+        // margin-right: 2em;
+	}
+
+	&__text {
+        flex-shrink: 0px;
+        margin-top: .3em;
+        text-align: center;
+        font-style: italic;
+        text-transform: uppercase;
+        font-size: .9em;
+	}
+
+}
+@media (max-width: 850px) {
+    .title__text {
+        display: none;
+    }
+}

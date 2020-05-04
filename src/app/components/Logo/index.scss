@@ -1,0 +1,7 @@
+.logo {
+    width: 10em;
+	&__img {
+        width: 100%;
+        object-fit: contain;
+	}
+}
