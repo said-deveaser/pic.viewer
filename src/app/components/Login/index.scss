@@ -11,3 +11,23 @@
         }
     }
 }
+.in-login {
+	&__text {
+        font-weight: 300;
+	}
+    &__sing-in {
+        font-weight: regular;
+		color: green;
+
+    }
+}
+.in-login-out {
+	margin-left: .4em;
+	cursor: pointer;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+.authed {
+	color: green;
+}

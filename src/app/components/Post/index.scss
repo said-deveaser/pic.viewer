@@ -8,7 +8,8 @@
     // box-shadow: 0 0 2em #ffffff38;
     border-radius: 0 0 .3em .3em;
 	&__img-wrapper {
-        height: 23em;
+        // height: 23em;
+        height: 80vh;
         position: relative;
         display: -webkit-flex;
         display: -ms-flex;
@@ -42,12 +43,14 @@
         position: relative;
         z-index: 1;
         width: 100%;
-        height: 100%;
+        // height: 100%;
         object-fit: cover;
         object-position: center;
         transition-duration: .4s;
 	}
 	&__description {
+        position: relative;
+        z-index: 2;
         padding-left: 1em;
         display: -webkit-flex;
         display: -ms-flex;
@@ -74,6 +77,6 @@
 
 @media (max-width: 850px) {
     .post__img-wrapper {
-        height: 20em;
+        height: 23em;
     }
 }

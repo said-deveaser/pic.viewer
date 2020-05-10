@@ -6,9 +6,9 @@ const Author = (props) => {
         <span className={`${props['parentClass']} ${css['author']}`}>
             <span className={`${css['author__icon']} icon-user`} />
             <span className={css["author__name"]}>
-                Karl En Dorient
+                {props.user.name}
             </span>
-            <a href="#" className={css["author__link"]}>@kendork</a>
+            <a href={props.user.links.html} target="_blanc" className={css["author__link"]}>@{props.user.username}</a>
         </span>
     )
 }

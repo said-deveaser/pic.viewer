@@ -9,11 +9,49 @@
     flex-direction: column;
     align-items: center;
     border-left: 1px solid $border-color;
+    position: relative;
+    &:hover {
+        .likes__modal {
+            display: inline-block;
+            opacity:1;
+        }
+    }
+    &__modal {
+        position: absolute;
+        border:1px solid $border-color;
+        background-color: #f4efeb;
+        padding: 1em;
+        text-align: center;
+        bottom: 100%;
+        pointer-events: none;
+        opacity: 0;
+        display: none;
+        color: grey;
+        transition-duration: .3s;
+    }
 	&__icon {
         font-size: 1.4em;
-        color: $like-en;
+        color: grey;
+        &--liked {
+            color: $like-en;
+        }
+        cursor: pointer;
 	}
 	&__count {
         font-weight: bold;
 	}
+}
+.liked {
+    color: red;
+}
+.likes__icon--loading {
+    animation: like .4s infinite linear;
+}
+@keyframes like {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(180deg);
+    }
 }

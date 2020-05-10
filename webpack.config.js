@@ -15,6 +15,12 @@ module.exports = {
         filename: "[name].js",
         publicPath: "/dist/",
     },
+    devServer: {
+        port: 8080,
+        historyApiFallback: {
+            index: '/',
+        }
+    },
     module: {
         rules: [
             {
@@ -34,7 +40,9 @@ module.exports = {
                     {
                         loader: 'css-loader',
                         options: {
-                            modules: true,
+                            modules: {
+                    	        localIdentName: "[local]___[hash:base64:5]",
+                    	    },
                         }
                     },
                     'sass-loader'
