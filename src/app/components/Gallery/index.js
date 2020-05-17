@@ -11,7 +11,7 @@ import Preloader from '../Preloader/index';
 
 //helpers
 import onPageEnd from '../../helpers/onPageEnd';
-import {photoList} from '../../helpers/unsplash';
+import {unsplashPhotoList as photoList}  from '../../helpers/unsplash';
 let page = 1;
 
 
@@ -35,11 +35,11 @@ const Gallery = (props) => {
     const {
         state,
         addPhotoToList,
-        changeViewedPhoto,
         signOut,
         likePhoto,
         unlikePhoto,
     } = props;
+    console.log(state);
     return(
         <div className={`${css['container']} ${css['app-page']}`}>
 
@@ -66,7 +66,6 @@ const Gallery = (props) => {
                 <Post
                     parentClass={css['gallery__item']}
                     state={state}
-                    changeViewedPhoto={changeViewedPhoto}
                     likePhoto={likePhoto}
                     unlikePhoto={unlikePhoto}/>
 

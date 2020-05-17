@@ -12,11 +12,6 @@ const Photos = (state = {}, action) => {
             return newState;
             break;
 
-        case 'CHANGE_VIEWED_PHOTO':
-            newState.viewedPhoto = action.photo;
-            return newState;
-            break;
-
         case 'SIGN_OUT':
             newState.user.token = null;
             localStorage.removeItem('token');
@@ -28,13 +23,11 @@ const Photos = (state = {}, action) => {
                 if (photo.id === action.id) {
                     let changedPhoto = {...photo};
                     changedPhoto.liked_by_user = true;
+                    changedPhoto.likes = ++changedPhoto.likes
                     return changedPhoto;
                 }
                 return photo;
             })
-            if (newState.viewedPhoto.id === action.id) {
-                newState.viewedPhoto.liked_by_user = true;
-            }
             return newState;
             break;
 
@@ -43,10 +36,8 @@ const Photos = (state = {}, action) => {
                 if (photo.id === action.id) {
                     let changedPhoto = {...photo};
                     changedPhoto.liked_by_user = false;
+                    changedPhoto.likes = --changedPhoto.likes
                     return changedPhoto;
-                }
-                if (newState.viewedPhoto.id === action.id) {
-                    newState.viewedPhoto.liked_by_user = false;
                 }
                 return photo;
             })

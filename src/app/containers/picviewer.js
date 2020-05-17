@@ -4,7 +4,7 @@ import React from 'react';
 import {BrowserRouter, Route, Link, Switch} from 'react-router-dom';
 
 import {connect} from 'react-redux';
-import {addPhotoToList, changeViewedPhoto, signOut, likePhoto, unlikePhoto} from '../actions/index';
+import {addPhotoToList, signOut, likePhoto, unlikePhoto} from '../actions/index';
 
 //components
 import Gallery from '../components/Gallery/index';
@@ -20,12 +20,11 @@ let Picviewer = (props) => {
         signOut,
         likePhoto,
         unlikePhoto,
-        changeViewedPhoto,
     } = props;
     return (
         <BrowserRouter>
             <Switch>
-                <Route path="/photo/">
+                <Route path="/photo/:id">
                     <Photo
                         signOut={signOut}
                         state={state}
@@ -38,7 +37,6 @@ let Picviewer = (props) => {
                         signOut={signOut}
                         state={state}
                         addPhotoToList={addPhotoToList}
-                        changeViewedPhoto={changeViewedPhoto}
                         likePhoto={likePhoto}
                         unlikePhoto={unlikePhoto}/>
                 </Route>
@@ -58,7 +56,6 @@ const mapDispatchToProps = (dispatch) => {
         likePhoto: (id) => dispatch(likePhoto(id)),
         signOut: () => dispatch(signOut()),
         addPhotoToList: (photos) => dispatch(addPhotoToList(photos)),
-        changeViewedPhoto: (photo) => dispatch(changeViewedPhoto(photo))
     }
 }
 

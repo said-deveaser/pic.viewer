@@ -13,7 +13,6 @@ import Author from '../Author/index';
 const Post = (props) => {
     const {
         state,
-        changeViewedPhoto,
         likePhoto,
         unlikePhoto,
     } = props;
@@ -21,13 +20,7 @@ const Post = (props) => {
     return state.photos.map((photo) => {
         return (
                 <div key={`${photo.id}_${(idPrefix++)}`} className={`${css['post']} ${props.parentClass}`}>
-                    <Link to={`/photo/${photo.id}/`} className={css["post__img-wrapper"]}
-                        onClick={(ev)=>{
-                            const context = ev;
-                            getPhoto(photo.id, (res)=>{
-                                changeViewedPhoto(res);
-                            })
-                        }}>
+                    <Link to={`/photo/${photo.id}/`} className={css["post__img-wrapper"]}>
                         <img
                             srcSet={`${photo.urls.small} 100w, ${photo.urls.regular} 500w`}
                             sizes='(max-width:6500px) 100px,

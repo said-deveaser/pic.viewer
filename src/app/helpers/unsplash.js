@@ -20,11 +20,12 @@ export const unsplashPhotoList = (page, perPage, handler) => {
 
 }
 // фото по ID
-export const getPhoto = (id, handler) => {
-    unsplash.photos.getPhoto(id)
+export const getPhoto = (id) => {
+    return unsplash.photos.getPhoto(id)
       .then(res => res.json())
       .then(json => {
-        handler(json);
+          return json
+        // handler(json);
       });
 }
 // URL для овторизации
@@ -77,13 +78,11 @@ export const getViewedPhoto = (handler) => {
     const path = urlObj[1];
     const imgId = urlObj[2];
     if (path === 'photo' && imgId) {
-        getPhoto(imgId, (photo)=> {
+        getPhoto(imgId).then((photo)=> {
             handler(photo)
         })
     } else {
-        getUnsplashRandomPhoto((photo)=>{
-            handler(photo);
-        })
+        handler(null);
     }
 }
 

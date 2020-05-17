@@ -5,13 +5,6 @@ export const addPhotoToList = (photos) => {
     }
 }
 
-export const changeViewedPhoto = (photo) => {
-    return {
-        type: 'CHANGE_VIEWED_PHOTO',
-        photo: photo
-    }
-}
-
 export const signOut = () => {
     return {
         type: 'SIGN_OUT',

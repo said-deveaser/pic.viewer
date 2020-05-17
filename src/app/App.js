@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import './../../public/js/jquery.fancybox.min';
+import './../../public/css/jquery.fancybox.min.css';
 // APP CONTAINER
 import Picviewer from './containers/picviewer';
 
@@ -15,9 +16,16 @@ import {unsplashPhotoList, getToken, getViewedPhoto} from './helpers/unsplash';
 
 
 const startApp = (photos, photo, token = null) => {
+    photos.map(eachPhoto => {
+        if (photo !== null && eachPhoto.id == photo.id) {
+            photo = null;
+        }
+    })
+    if (photo !== null) {
+        photos = [photo, ...photos];
+    }
     const initialState = {
         photos: photos,
-        viewedPhoto: photo,
         user: {
             token: token,
         },
