@@ -4,7 +4,7 @@
   "description": "unsplash images viewer",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --production",
     "start": "webpack-dev-server --development --open",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

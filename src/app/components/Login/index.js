@@ -1,7 +1,9 @@
-import React from 'react';
 import css from './index.scss';
-import {authenticationUrl} from '../../helpers/unsplash';
+
+import React from 'react';
 import {NavLink as Link} from 'react-router-dom';
+
+import {authenticationUrl} from '../../helpers/unsplash';
 
 const Login = (props) => {
     if (props.auth) {

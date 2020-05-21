@@ -2,15 +2,15 @@ import './picviewer.scss';
 
 import React from 'react';
 import {BrowserRouter, Route, Link, Switch} from 'react-router-dom';
-
 import {connect} from 'react-redux';
-import {addPhotoToList, signOut, likePhoto, unlikePhoto} from '../actions/index';
+
 
 //components
 import Gallery from '../components/Gallery/index';
 import Photo from '../components/Photo/index';
 
 //actions
+import {addPhotoToList, signOut, likePhoto, unlikePhoto} from '../actions/index';
 
 
 let Picviewer = (props) => {

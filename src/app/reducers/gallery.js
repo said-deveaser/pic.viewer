@@ -1,4 +1,3 @@
-let i = 1;
 
 const Photos = (state = {}, action) => {
     let newState = {...state};

@@ -5,8 +5,7 @@ import {likeUnsplashPhoto, unLikeUnsplashPhoto} from '../../helpers/unsplash';
 const Like = (props) => {
     const {
         auth, likes, liked, parentClass, photoId, likePhoto,unlikePhoto
-    } = props
-    console.log(liked);
+    } = props;
     const iconClass = liked ? css['likes__icon--liked'] : ' ';
     if (props.auth) {
         return (

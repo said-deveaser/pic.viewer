@@ -1,16 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+// modal image viewer
 import './../../public/js/jquery.fancybox.min';
 import './../../public/css/jquery.fancybox.min.css';
+
 // APP CONTAINER
 import Picviewer from './containers/picviewer';
 
 //redux
 import { createStore } from 'redux';
+
 //Reducer
 import photosReducer from './reducers/gallery';
 
-//hekpers
+//helpers
 import {unsplashPhotoList, getToken, getViewedPhoto} from './helpers/unsplash';
 
 
@@ -30,7 +34,6 @@ const startApp = (photos, photo, token = null) => {
             token: token,
         },
     };
-    console.log(initialState);
 
     const store = createStore(photosReducer, initialState);
     ReactDOM.render(

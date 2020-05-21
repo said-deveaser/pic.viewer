@@ -1,8 +1,8 @@
 import css from './index.scss';
 
-
 import React from 'react';
 
+// components
 import Post from '../Post/index';
 import Title from '../Title/index';
 import Login from '../Login/index';
@@ -39,7 +39,6 @@ const Gallery = (props) => {
         likePhoto,
         unlikePhoto,
     } = props;
-    console.log(state);
     return(
         <div className={`${css['container']} ${css['app-page']}`}>
 

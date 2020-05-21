@@ -1,40 +1,42 @@
 import {acceskey, secretkey, callbackUrl} from '../config';
+// Unsplash dependinces
 import fetch from 'node-fetch';
+// Unsplash core
 import Unsplash from 'unsplash-js';
 
 
-//объект для доступа к API
+//API access obj
 export const unsplash = new Unsplash({
     accessKey: acceskey,
     secret: secretkey,
     callbackUrl: callbackUrl,
 })
-console.log(unsplash);
-//последние фотографии
+
+//last photos
 export const unsplashPhotoList = (page, perPage, handler) => {
     unsplash.photos.listPhotos(page, perPage, "latest")
       .then(res => res.json())
       .then(json => {
         handler(json);
-      });
-
+  });
 }
-// фото по ID
+
+//take photo by id
 export const getPhoto = (id) => {
     return unsplash.photos.getPhoto(id)
       .then(res => res.json())
       .then(json => {
           return json
-        // handler(json);
       });
 }
-// URL для овторизации
+
+// URL for oauth
 export const authenticationUrl = unsplash.auth.getAuthenticationUrl([
     "public",
     "write_likes"
 ]);
 
-//запрос токена
+//get bearer token
 export const getUnsplasToken = (code, handler) => {
     unsplash.auth.userAuthentication(code)
         .then(res => res.json())
@@ -44,7 +46,7 @@ export const getUnsplasToken = (code, handler) => {
         })
 }
 
-// токен для авторизации null если не валидный
+// authentication
 export const getToken = (handler) => {
     const code = location.search.split('code=')[1];
     let token = JSON.parse(localStorage.getItem('token'));
@@ -65,14 +67,7 @@ export const getToken = (handler) => {
     }
 }
 
-export const getUnsplashRandomPhoto = (handler) => {
-    unsplash.photos.getRandomPhoto()
-      .then(res => res.json())
-      .then(json => {
-        handler(json);
-      });
-}
-//возвращает изначальное фото для просмотра на странице /photo/
+// check if inital path is /photo/:id then get :id photo added to initial state
 export const getViewedPhoto = (handler) => {
     const urlObj = location.pathname.split('/');
     const path = urlObj[1];
@@ -86,23 +81,20 @@ export const getViewedPhoto = (handler) => {
     }
 }
 
-
+// like photo
 export const likeUnsplashPhoto = (id, handler) => {
     unsplash.photos.likePhoto(id)
           .then(res => res.json())
           .then(json => {
-              console.log('ЛАЙКНУЛИ:');
-              console.log(json);
                 handler(id)
           });
 }
 
+// unlike photo
 export const unLikeUnsplashPhoto = (id, handler) => {
     unsplash.photos.unlikePhoto(id)
       .then(res => res.json())
       .then(json => {
-          console.log('АНЛАЙКНУЛИ:');
-          console.log(json);
             handler(id)
       });
 }
