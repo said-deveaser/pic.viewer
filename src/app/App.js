@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// modal image viewer
+// modal image viewer API
 import './../../public/js/jquery.fancybox.min';
 import './../../public/css/jquery.fancybox.min.css';
 
