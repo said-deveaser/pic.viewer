@@ -3,9 +3,6 @@ import css from './index.scss';
 import React from 'react';
 import { NavLink as Link } from 'react-router-dom';
 
-//helpers
-import {getPhoto} from '../../helpers/unsplash'
-
 //components
 import Like from '../Like/index';
 import Author from '../Author/index';

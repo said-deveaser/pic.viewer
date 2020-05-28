@@ -7,7 +7,7 @@ const Like = (props) => {
         auth, likes, liked, parentClass, photoId, likePhoto,unlikePhoto
     } = props;
     const iconClass = liked ? css['likes__icon--liked'] : ' ';
-    if (props.auth) {
+    if (auth) {
         return (
             <span className={`${parentClass} ${css['likes']}`}>
                 <span className={`${css['likes__icon']} ${iconClass} icon-heart`} onClick={(ev)=> {

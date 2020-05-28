@@ -41,7 +41,6 @@ class Gallery extends React.Component {
     render() {
         const {
             state,
-            addPhotoToList,
             signOut,
             likePhoto,
             unlikePhoto,

@@ -9,7 +9,7 @@ const Author = (props) => {
             <span className={css["author__name"]}>
                 {user.name}
             </span>
-            <a href={user.links.html} target="_blanc" className={css["author__link"]}>@{user.username}</a>
+            <a href={user.links.html} target="_blank" className={css["author__link"]}>@{user.username}</a>
         </span>
     )
 }

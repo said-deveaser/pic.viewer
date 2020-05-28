@@ -1,7 +1,6 @@
 import css from './index.scss';
 
 import React from 'react';
-import {NavLink as Link} from 'react-router-dom';
 
 import {authenticationUrl} from '../../helpers/unsplash';
 
