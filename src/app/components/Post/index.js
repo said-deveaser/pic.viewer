@@ -12,7 +12,6 @@ const Post = (props) => {
     const {
         state,
         likePhoto,
-        unlikePhoto,
         parentClass,
     } = props;
     return state.photos.map((photo) => {
@@ -55,8 +54,7 @@ const Post = (props) => {
                         auth={state.user.token}
                         photoId={photo.id}
                         liked={photo.liked_by_user}
-                        likePhoto={likePhoto}
-                        unlikePhoto={unlikePhoto}/>
+                        likePhoto={likePhoto}/>
 
                 </div>
 

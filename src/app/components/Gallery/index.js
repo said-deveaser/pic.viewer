@@ -43,7 +43,6 @@ class Gallery extends React.Component {
             state,
             signOut,
             likePhoto,
-            unlikePhoto,
         } = this.props;
         return(
             <div className={`${css['container']} ${css['app-page']}`}>
@@ -71,8 +70,7 @@ class Gallery extends React.Component {
                     <Post
                         parentClass={css['gallery__item']}
                         state={state}
-                        likePhoto={likePhoto}
-                        unlikePhoto={unlikePhoto}/>
+                        likePhoto={likePhoto}/>
 
                     <div className={`observeTrigger ${css['observeTrigger-wrapper']}`} onClick={(ev)=>{
                             let contextEl = ev.target;

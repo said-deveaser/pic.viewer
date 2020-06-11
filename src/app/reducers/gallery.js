@@ -1,8 +1,8 @@
-
+import {ADD_PHOTO_TO_LIST,SIGN_OUT,LIKE_PHOTO} from '../actions/index';
 const Photos = (state = {}, action) => {
     let newState = {...state};
     switch (action.type) {
-        case 'ADD_PHOTO_TO_LIST':
+        case ADD_PHOTO_TO_LIST:
             newState.photos =  [
                 ...newState.photos,
                 ...action.photos,
@@ -11,32 +11,25 @@ const Photos = (state = {}, action) => {
             return newState;
             break;
 
-        case 'SIGN_OUT':
+        case SIGN_OUT:
             newState.user.token = null;
             localStorage.removeItem('token');
             return newState;
             break;
 
-        case 'LIKE_PHOTO':
+        case LIKE_PHOTO:
             newState.photos = newState.photos.map((photo) => {
                 if (photo.id === action.id) {
                     let changedPhoto = {...photo};
-                    changedPhoto.liked_by_user = true;
-                    changedPhoto.likes = ++changedPhoto.likes
-                    return changedPhoto;
-                }
-                return photo;
-            })
-            return newState;
-            break;
-
-        case 'UNLIKE_PHOTO':
-            newState.photos = newState.photos.map((photo) => {
-                if (photo.id === action.id) {
-                    let changedPhoto = {...photo};
-                    changedPhoto.liked_by_user = false;
-                    changedPhoto.likes = --changedPhoto.likes
-                    return changedPhoto;
+                    if  (changedPhoto.liked_by_user == false) {
+                        changedPhoto.liked_by_user = true;
+                        changedPhoto.likes = ++changedPhoto.likes
+                        return changedPhoto;
+                    } else {
+                        changedPhoto.liked_by_user = false;
+                        changedPhoto.likes = --changedPhoto.likes
+                        return changedPhoto;
+                    }
                 }
                 return photo;
             })

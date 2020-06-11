@@ -4,7 +4,7 @@ import {likeUnsplashPhoto, unLikeUnsplashPhoto} from '../../helpers/unsplash';
 
 const Like = (props) => {
     const {
-        auth, likes, liked, parentClass, photoId, likePhoto,unlikePhoto
+        auth, likes, liked, parentClass, photoId, likePhoto
     } = props;
     const iconClass = liked ? css['likes__icon--liked'] : ' ';
     if (auth) {
@@ -13,15 +13,9 @@ const Like = (props) => {
                 <span className={`${css['likes__icon']} ${iconClass} icon-heart`} onClick={(ev)=> {
                         const el = ev.target;
                         el.classList.add(css['likes__icon--loading'])
-                        if (!liked) {
-                            likeUnsplashPhoto(photoId, (id) => {
-                                likePhoto(id);
-                            })
-                        } else {
-                            unLikeUnsplashPhoto(photoId, (id)=> {
-                                unlikePhoto(id);
-                            })
-                        }
+                        likeUnsplashPhoto(photoId, (id) => {
+                            likePhoto(id);
+                        })
                     }}/>
                 <span className={css["likes__count"]}>{likes}</span>
             </span>

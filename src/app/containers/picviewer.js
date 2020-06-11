@@ -10,7 +10,7 @@ import Gallery from '../components/Gallery/index';
 import Photo from '../components/Photo/index';
 
 //actions
-import {addPhotoToList, signOut, likePhoto, unlikePhoto} from '../actions/index';
+import {addPhotoToList, signOut, likePhoto} from '../actions/index';
 
 
 let Picviewer = (props) => {
@@ -19,7 +19,6 @@ let Picviewer = (props) => {
         addPhotoToList,
         signOut,
         likePhoto,
-        unlikePhoto,
     } = props;
     return (
         <BrowserRouter>
@@ -29,16 +28,14 @@ let Picviewer = (props) => {
                         signOut={signOut}
                         state={state}
                         className="photo"
-                        likePhoto={likePhoto}
-                        unlikePhoto={unlikePhoto}/>
+                        likePhoto={likePhoto}/>
                 </Route>
                 <Route path="/" >
                     <Gallery
                         signOut={signOut}
                         state={state}
                         addPhotoToList={addPhotoToList}
-                        likePhoto={likePhoto}
-                        unlikePhoto={unlikePhoto}/>
+                        likePhoto={likePhoto}/>
                 </Route>
             </Switch>
         </BrowserRouter>
@@ -52,7 +49,6 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        unlikePhoto: (id) => dispatch(unlikePhoto(id)),
         likePhoto: (id) => dispatch(likePhoto(id)),
         signOut: () => dispatch(signOut()),
         addPhotoToList: (photos) => dispatch(addPhotoToList(photos)),

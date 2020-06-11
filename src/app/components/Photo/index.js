@@ -14,7 +14,7 @@ import Preloader from '../Preloader/index';
 
 let elIndex = 1;
 const Photo = (props) => {
-    const {likePhoto, unlikePhoto, state, signOut} = props;
+    const {likePhoto, state, signOut} = props;
     const { id } = useParams();
     return state.photos.map(photo => {
         if (photo.id === id) {
@@ -112,8 +112,7 @@ const Photo = (props) => {
                                     liked={photo.liked_by_user}
                                     auth={state.user.token}
                                     photoId={photo.id}
-                                    likePhoto={likePhoto}
-                                    unlikePhoto={unlikePhoto}/>
+                                    likePhoto={likePhoto}/>
 
                             </div>
 
